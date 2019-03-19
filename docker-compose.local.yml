@@ -1,0 +1,18 @@
+version: '3'
+volumes:
+  sanic_comp_postgres:
+    external: true
+  sanic_comp_logs:
+    external: true
+
+services:
+  postgres:
+    container_name: sanic_comp_postgres
+    image: postgres:11.1
+    env_file:
+    - ./config.env
+    ports:
+    - 5432:5432
+    volumes:
+      - sanic_comp_postgres:/var/lib/postgresql/data/
+      - sanic_comp_logs:/var/log/
