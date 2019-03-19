@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath sanic_comp sanic_comp.wsgi
